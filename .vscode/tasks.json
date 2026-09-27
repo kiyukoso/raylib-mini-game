@@ -1,0 +1,66 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "raylib: 准备输出目录",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "if not exist bin mkdir bin"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "raylib: 生成 (build)",
+            "type": "shell",
+            "command": "D:/mingw64/bin/gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-O0",
+                "-Wall",
+                "-Wextra",
+                "${workspaceFolder}/src/*.c",
+                "-o",
+                "${workspaceFolder}/bin/main.exe",
+                "-I",
+                "D:/raylib/raylib-6.0_win64_mingw-w64/include",
+                "-L",
+                "D:/raylib/raylib-6.0_win64_mingw-w64/lib",
+                "-lraylib",
+                "-lopengl32",
+                "-lgdi32",
+                "-lwinmm"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": "raylib: 准备输出目录",
+            "detail": "编译 src 下所有 .c，静态链接 raylib 到 bin/main.exe"
+        },
+        {
+            "label": "raylib: 生成并运行 (build & run)",
+            "type": "shell",
+            "command": "${workspaceFolder}/bin/main.exe",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "dependsOn": [
+                "raylib: 生成 (build)"
+            ],
+            "detail": "先编译，再运行生成的 exe"
+        }
+    ]
+}

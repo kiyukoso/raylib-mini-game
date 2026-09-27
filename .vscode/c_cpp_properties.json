@@ -1,0 +1,19 @@
+{
+    // 这个文件只影响代码补全 / 跳转定义 / 红色波浪线的判断，不参与实际编译
+    // 实际编译参数在 tasks.json 里
+    "version": 4,
+    "configurations": [
+        {
+            "name": "MinGW-w64",
+            "includePath": [
+                "${workspaceFolder}/src",
+                "D:/raylib/raylib-6.0_win64_mingw-w64/include"
+            ],
+            "defines": [],
+            "compilerPath": "D:/mingw64/bin/gcc.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ]
+}

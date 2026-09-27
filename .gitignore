@@ -1,0 +1,14 @@
+# 编译产物
+bin/
+*.exe
+*.o
+*.obj
+
+# 调试相关
+*.pdb
+*.ilk
+
+# 系统文件
+Thumbs.db
+desktop.ini
+.DS_Store

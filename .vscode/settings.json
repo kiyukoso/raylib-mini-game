@@ -1,0 +1,15 @@
+{
+    // 工作区级设置：只对 raylib_project 生效，不动你的全局配置
+    "code-runner.executorMap": {
+        // 覆盖全局那条 "cd $dir && gcc $fileName -fexec-charset=gbk -o ..."
+        // 全局命令只编译当前单个文件、不带 raylib 参数，所以点 ▶ 会报 raylib.h: No such file
+        // 说明：
+        //   $workspaceRoot 会被替换成本工程根目录
+        //   && 两边必须留空格，Code Runner 才会把它转成 PowerShell 能懂的语法
+        "c": "cd $workspaceRoot && gcc src/*.c -fexec-charset=gbk -o bin/main.exe -I D:/raylib/raylib-6.0_win64_mingw-w64/include -L D:/raylib/raylib-6.0_win64_mingw-w64/lib -lraylib -lopengl32 -lgdi32 -lwinmm && $workspaceRoot/bin/main.exe"
+    },
+    // 在集成终端里运行，编译报错能直接看到
+    "code-runner.runInTerminal": true,
+    // 不要把工作目录设成源文件所在的 src，命令里已经用 cd 指定了工程根目录
+    "code-runner.fileDirectoryAsCwd": false
+}
